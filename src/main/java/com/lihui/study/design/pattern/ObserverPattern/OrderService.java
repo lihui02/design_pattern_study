@@ -22,6 +22,7 @@ public class OrderService {
      * 新增订单，应用观察者模式
      */
     public void add(String userType){
+        //dev分支增加的内容
         System.out.println("增加订单");
         //发布新增订单事件
         Order order=new Order();
