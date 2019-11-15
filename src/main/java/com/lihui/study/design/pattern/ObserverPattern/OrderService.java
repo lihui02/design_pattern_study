@@ -26,7 +26,7 @@ public class OrderService {
         System.out.println("增加订单");
         //发布新增订单事件
         Order order=new Order();
-        order.setCode("141313");
+        order.setCode("master");
         order.setUsername("lila");
        //采用策略模式获取不同用户的价格
         VipBuyerPrice vipBuyerPrice=new VipBuyerPrice();
