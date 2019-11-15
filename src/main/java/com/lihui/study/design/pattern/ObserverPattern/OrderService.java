@@ -27,6 +27,7 @@ public class OrderService {
         //发布新增订单事件
         Order order=new Order();
         order.setCode("dev");
+        System.out.println("冲突超级破那个图fgg");
         order.setUsername("lila");
        //采用策略模式获取不同用户的价格
         VipBuyerPrice vipBuyerPrice=new VipBuyerPrice();
