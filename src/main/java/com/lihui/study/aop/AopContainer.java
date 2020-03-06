@@ -13,8 +13,7 @@ import java.util.Map;
 public class AopContainer {
     private Map<String,Class<?>> map=new HashMap<>();
     public Object getBean(String benaName) throws IllegalAccessException, InstantiationException {
-        Object o = map.get(benaName).newInstance();
-        return o;
+        return map.get(benaName).newInstance();
     }
     public void addBean(String beanName,Class<?> clazz){
         map.put(beanName,clazz);

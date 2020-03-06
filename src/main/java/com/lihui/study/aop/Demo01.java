@@ -17,9 +17,7 @@ public class Demo01 {
         try {
             KtvServcie ktvService = (KtvServcie)container.getBean("ktvService");
             ktvService.sing();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
