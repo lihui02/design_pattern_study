@@ -1,5 +1,9 @@
 package com.lihui.study.algorithms;
 
+import sun.reflect.generics.tree.Tree;
+
+import java.util.TreeSet;
+
 /**
  * @ClassName: AVLTree
  * @Description: AVL 二叉树
@@ -176,11 +180,13 @@ AVLTree<E extends Comparable<? super E>> {
         AVLTree<Integer> tree = new AVLTree<>();
          tree.insert(7);
          tree.insert(4);
-         tree.insert(10);
+         tree.
+                 insert(10);
          tree.insert(3);
          tree.insert(5);
          tree.insert(6);
          tree.print();
+        TreeSet set=new TreeSet();
 
 
     }
