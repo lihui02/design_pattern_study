@@ -54,7 +54,7 @@ public class MyHashMap<K,V> {
         if (list==null){
             return;
         }
-        System.out.println(1111);
+        System.out.println(112211);
         list.remove(v);
     }
 
