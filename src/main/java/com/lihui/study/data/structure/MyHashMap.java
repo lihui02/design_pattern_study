@@ -1,4 +1,4 @@
-package com.lihui.study.algorithms;
+package com.lihui.study.data.structure;
 
 import java.util.LinkedList;
 

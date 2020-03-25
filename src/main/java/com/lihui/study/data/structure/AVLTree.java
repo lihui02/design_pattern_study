@@ -1,6 +1,4 @@
-package com.lihui.study.algorithms;
-
-import sun.reflect.generics.tree.Tree;
+package com.lihui.study.data.structure;
 
 import java.util.TreeSet;
 

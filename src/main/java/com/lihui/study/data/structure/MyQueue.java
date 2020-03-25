@@ -1,6 +1,4 @@
-package com.lihui.study.algorithms;
-
-import java.util.ArrayList;
+package com.lihui.study.data.structure;
 
 /**
  * @ClassName: MyStack
