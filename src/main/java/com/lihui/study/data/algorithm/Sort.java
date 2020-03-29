@@ -34,8 +34,6 @@ import java.util.Random;
  * <p>
  * 堆排序：构建堆:O(N),N次deleteMin:O(N*logN),合计O(N)+O(N*logN)
  * 归并排序：运行时间 O(N*logN)，缺点，需要一个临时的内存来存储临时数组。
- *
- *
  * @author: ex_lihui4
  * @date: 2020-3-25  15:00
  */
@@ -168,6 +166,7 @@ public class Sort {
 
     /**
      * 归并排序
+     *
      * @param arr
      */
 
@@ -183,6 +182,63 @@ public class Sort {
             merge(arr, left, mid, right, temp);
         }
 
+    }
+
+    public static void quickSort(int[] arr) {
+        quickSort(arr,0,arr.length-1);
+
+    }
+
+    /**
+     * 选取最左边，最右边和中间的三个元素，并将最小值放在最左边，最大值放在最右边
+     * 中间值放在倒数第二
+     *
+     * @param arr
+     * @param left
+     * @param right
+     */
+    private static void selectPivot(int[] arr, int left, int right) {
+        int[] arrTemp = new int[]{arr[left], arr[right], arr[(right + left) / 2]};
+        Sort.bubbleSort(arrTemp);
+        arr[left] = arrTemp[0];
+        arr[right] = arrTemp[2];
+        arr[(right + left) / 2] = arr[right - 1];
+        arr[right - 1] = arrTemp[1];
+    }
+
+    private static void quickSort(int[] arr, int left, int right) {
+        selectPivot(arr, left, right);
+        int i = left + 1;
+        int j = right - 2;
+        int pivot = arr[right - 1];
+        int temp;
+        while (true) {
+            while (arr[i] < pivot && i <= j) {
+                i++;
+            }
+            while (arr[j] > pivot && i < j) {
+                j--;
+            }
+            if (i>=j){
+                temp=arr[i];
+                arr[i]=pivot;
+                arr[right - 1]=temp;
+                break;
+            }else {
+                temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+                i++;
+                j--;
+            }
+        }
+            if (i-1-left>1){
+                quickSort(arr,left,i-1);
+            }
+            if (right-i-1>1){
+                quickSort(arr,i+1,right);
+
+            }
     }
 
     private static void merge(int[] arr, int left, int mid, int right, int[] temp) {
@@ -206,26 +262,53 @@ public class Sort {
         while (left <= right) {
             arr[left++] = temp[k++];
         }
-
-
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[100000];
+        String[] strings=new String[]{"adfg","tfdv","e1tg","1afw"};
+        Sort.radixSort(strings,4);
+        System.out.println(Arrays.toString(strings));
+    }
+
+    /**
+     * 基数排序:按Unicode编码，假设所有的编码都是前256位
+     * 对字符串进行排序，每个字符串的长度相同，
+     * @param strings
+     * @param length   字符串的长度
+     */
+
+    public static void radixSort(String[] strings,int length){
+        String temp;
+        String[][] strsTemp=new String[256][];
+        for (String[] strings1:strsTemp){
+
+        for (int i=0;i<length;i++){
+            for (int j=0;j<strings.length;j++){
+
+                strings[j].charAt(i)
+                }
+            }
+        }
+    }
+
+   /* public static void main(String[] args) {
+        int length=100000;
+        int[] arr = new int[length];
         Random random = new Random();
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(100000);
+            arr[i] = random.nextInt(length);
         }
-        int[] int1 = Arrays.copyOf(arr, 100000);
-        int[] int2 = Arrays.copyOf(arr, 100000);
-        int[] int3 = Arrays.copyOf(arr, 100000);
-        int[] int4 = Arrays.copyOf(arr, 100000);
-        Integer[] int5 = new Integer[100000];
+        int[] int1 = Arrays.copyOf(arr, length);
+        int[] int2 = Arrays.copyOf(arr, length);
+        int[] int3 = Arrays.copyOf(arr, length);
+        int[] int4 = Arrays.copyOf(arr, length);
+        int[] int7 = Arrays.copyOf(arr, length);
+        Integer[] int5 = new Integer[length];
         for (int i = 0; i < arr.length; i++) {
             int5[i] = arr[i];
         }
-        int[] int6 = Arrays.copyOf(arr, 100000);
-        long l = System.currentTimeMillis();
+        int[] int6 = Arrays.copyOf(arr, length);
+       *//* long l = System.currentTimeMillis();
         Sort.selectionSort(arr);
         long b = System.currentTimeMillis();
         System.out.println("选择排序：" + (b - l));
@@ -236,9 +319,9 @@ public class Sort {
         long l2 = System.currentTimeMillis();
         Sort.insertSort(int2);
         long b2 = System.currentTimeMillis();
-        System.out.println("插入排序：" + (b2 - l2));
+        System.out.println("插入排序：" + (b2 - l2));*//*
 
-       long l3 = System.currentTimeMillis();
+        long l3 = System.currentTimeMillis();
         Sort.shellSort(int3);
         long b3 = System.currentTimeMillis();
         System.out.println("希尔排序：" + (b3 - l3));
@@ -254,6 +337,12 @@ public class Sort {
         Sort.mergeSort(int6);
         long b6 = System.currentTimeMillis();
         System.out.println("归并排序：" + (b6 - l6));
+        //int[] arr1=new int[]{5,4,3,2,1,0};
+        long l7 = System.currentTimeMillis();
+        Sort.quickSort(int7);
+        long b7 = System.currentTimeMillis();
+        System.out.println("快速排序：" + (b7 - l7));
+        System.out.println(Arrays.toString(int7));
 
-    }
+    }*/
 }
